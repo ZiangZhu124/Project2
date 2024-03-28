@@ -3,25 +3,25 @@ let artworks =  [
     
     {
     
-    title: "Teapot",
-    designer: "Marianne Brandt",
-    year:1924,
-    material:"Nickel silver and ebony",
-    image: "https://shop.bauhaus-movement.com/media/2395/catalog/teapot-marianne-brandt.png",
-    category: "Industrial Design",
-    located:"Museum of Modern Art, New York City"
+      title: "Teapot",
+      designer: "Marianne Brandt",
+      year:1924,
+      material:"Nickel silver and ebony",
+      image: "https://shop.bauhaus-movement.com/media/2395/catalog/teapot-marianne-brandt.png",
+      category: "Industrial Design",
+      located:"Museum of Modern Art, New York City"
  
     },
 
 
     {
-    title: "Ceiling Lamp",
-    designer: "Marianne Brandt",
-    year:1925,
-    material:"Spun aluminum and milk glass shade",
-    image: "https://shop.neuegalerie.org/cdn/shop/products/MBPendulumLamp_5Bw_5D_1024x1024.jpeg?v=1605648857",
-    category: "Industrial Design",
-    located:"Museum of Modern Art, New York City"
+      title: "Ceiling Lamp",
+      designer: "Marianne Brandt",
+      year:1925,
+      material:"Spun aluminum and milk glass shade",
+      image: "https://shop.neuegalerie.org/cdn/shop/products/MBPendulumLamp_5Bw_5D_1024x1024.jpeg?v=1605648857",
+      category: "Industrial Design",
+      located:"Museum of Modern Art, New York City"
      
     },
 
@@ -417,12 +417,71 @@ function displayIndustrial(artworks) {
 
 
 
-const buildArtworkItemTest = function(artworks){
+
+
+
+
+
+const buildArtworkItemTest = function(artworks, i){
    return `
-   <div class="image-container">
+   <div class="image-container" id=${i}>
        <img src="${artworks.image}" class="images">
    </div>
+   
+   <div class="works-details">
+
+   <h3>${artworks.title}</h3>
+   <h3>${artworks.designer}</h3>
+   <h3>${artworks.year}</h3>
+   <h3>${artworks.material}</h3>
+   <h3>${artworks.category}</h3>
+   <h3>${artworks.located}</h3>
+
+   </div>
+
    `
 }
 
+
+
+const buildGraphicItemTest = function(graphicDesign, i){
+   return `
+   <div class="image-container" id=${i}>
+       <img src="${graphicDesign.image}" class="images">
+   </div>
+   
+   <div class="works-details">
+
+   <h3>${graphicDesign.title}</h3>
+   <h3>${graphicDesign.designer}</h3>
+   <h3>${graphicDesign.year}</h3>
+   <h3>${graphicDesign.material}</h3>
+   <h3>${graphicDesign.category}</h3>
+   <h3>${graphicDesign.located}</h3>
+
+   </div>
+
+   `
+}
+
+
+const buildArhItemTest = function(architectureDesign, i){
+   return `
+   <div class="image-container" id=${i}>
+       <img src="${architectureDesign.image}" class="images">
+   </div>
+   
+   <div class="works-details">
+
+   <h3>${architectureDesign.title}</h3>
+   <h3>${architectureDesign.designer}</h3>
+   <h3>${architectureDesign.year}</h3>
+   <h3>${architectureDesign.material}</h3>
+   <h3>${architectureDesign.category}</h3>
+   <h3>${architectureDesign.located}</h3>
+
+   </div>
+
+   `
+}
 
