@@ -1,16 +1,24 @@
 <html>
     <head>
+        <Title>Bauhaus Works Collection</Title>
         <link rel="stylesheet" href="style.css"/>
         <script defer src="script.js"></script>
       
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
-    
+        <script>
+
+          const closePopUp = ()=>{
+              const popUp = document.getElementById("pop");
+              popUp.style.display = "none"
+              document.body.style.overflow = "scroll";
+          }
+      </script>
     </head>
 
     <body>
-        
+  
         <div class="top">
             <div class="circle"></div>
             <div class="triangle"></div>
@@ -23,7 +31,7 @@
        <div id="industrial"></div>
       
        
-       <h1 class="title2">Graphic & Fineart</span>
+       <h1 class="title2">Graphic & Fineart</h1>
         <div class="artcontainer">
       <div id="graphic"></div>
         </div>
@@ -35,7 +43,15 @@
       </div>
        
      
-        
+      
         </div>
+    <div id="pop" onclick="closePopUp()">
+      <div id="exit-button" >
+          Close
+      </div>
+      <div id="pop-up-data">
+
+      </div>
+  </div>
     </body>
 </html>

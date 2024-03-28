@@ -356,132 +356,67 @@ let archcontainer=document.querySelector (".archcontainer");
 let artcontainer=document.querySelector (".artcontainer");
 let newcontainer=document.querySelector (".newcontainer");
 
+let popUp = document.getElementById("pop")
+
 let i=0;
 
 
 
-function displayIndustrial(artworks) {
+function activatePopUp(item){
+   popUp.style.display = "block"
+
+   let popUpData = document.getElementById("pop-up-data")
+   popUpData.innerHTML = `<div class="item-detail-view">
+
+   <img src="${item.image}"/>
+   <div class="item-title">${item.title}</div>
+   <div class="item-title">${item.designer}</div>
+   <div class="item-title">${item.year}</div>
+   <div class="item-title">${item.material}</div>
+   <div class="item-title">${item.category}</div>
+   <div class="item-title">${item.located}</div>
+   </div>`
+}
+
+
+
+function displayItem(item, container){
+
     // creates a new div; appends that div to the container
     let newItem = document.createElement("div");
-    let industrialDiv = archcontainer.appendChild(newItem);
+
+    newItem.addEventListener("click", ()=>{
+      activatePopUp(item)
+    })
+    let industrialDiv = container.appendChild(newItem);
     // increase the counter variable by one
     i++;
     // adds a shared class to each new div
     newItem.classList.add("indesign");
     // adds a specific class to each new div
     newItem.classList.add("indesign" + [i]);
+
+
     // places the flower name and amount to the div
-    industrialDiv.style.backgroundImage = "url(" + artworks.image + ")";
+    industrialDiv.style.backgroundImage = "url(" + item.image + ")";
     // sets height of flower to the amount. try changing height to width, or padding
     // flowerDiv.style.height = flower.amount + "px";
     industrialDiv.style.backgroundRepeat = "no-repeat";
     industrialDiv.style.backgroundSize = "cover";
 
-    console.log(artworks);
+    
 
-  }
-  // loops through the flowers and runs the displayFlowers function for each one
-  artworks.forEach(displayIndustrial);
-
-
-
-  function displayGraphic(graphicDesign) {
-    let newItem = document.createElement("div");
-    let graphicDiv = artcontainer.appendChild(newItem);
-    i++;
-    newItem.classList.add("gradesign");
-    newItem.classList.add("gradesign" + [i]);
-    graphicDiv.style.backgroundImage = "url(" + graphicDesign.image + ")";
-    graphicDiv.style.backgroundRepeat = "no-repeat";
-    graphicDiv.style.backgroundSize = "cover";
-    console.log(graphicDesign);
-  }
-  
-  graphicDesign.forEach(displayGraphic);
-
-
-
-  function displayArch(architectureDesign) {
-    let newItem = document.createElement("div");
-    let archDiv = newcontainer.appendChild(newItem);
-    i++;
-    newItem.classList.add("ardesign");
-    newItem.classList.add("ardesign" + [i]);
-    archDiv.style.backgroundImage = "url(" + architectureDesign.image + ")";
-    archDiv.style.backgroundRepeat = "no-repeat";
-    archDiv.style.backgroundSize = "cover";
-    console.log(architectureDesign);
-  }
-  
-  architectureDesign.forEach(displayArch);
-
-
-
-
-
-
-
-
-const buildArtworkItemTest = function(artworks, i){
-   return `
-   <div class="image-container" id=${i}>
-       <img src="${artworks.image}" class="images">
-   </div>
-   
-   <div class="works-details">
-
-   <h3>${artworks.title}</h3>
-   <h3>${artworks.designer}</h3>
-   <h3>${artworks.year}</h3>
-   <h3>${artworks.material}</h3>
-   <h3>${artworks.category}</h3>
-   <h3>${artworks.located}</h3>
-
-   </div>
-
-   `
 }
 
 
+function loopThroughItems(items, container){
+   items.forEach((item)=>{
+      displayItem(item, container);
+   })
 
-const buildGraphicItemTest = function(graphicDesign, i){
-   return `
-   <div class="image-container" id=${i}>
-       <img src="${graphicDesign.image}" class="images">
-   </div>
-   
-   <div class="works-details">
-
-   <h3>${graphicDesign.title}</h3>
-   <h3>${graphicDesign.designer}</h3>
-   <h3>${graphicDesign.year}</h3>
-   <h3>${graphicDesign.material}</h3>
-   <h3>${graphicDesign.category}</h3>
-   <h3>${graphicDesign.located}</h3>
-
-   </div>
-
-   `
 }
 
-
-const buildArhItemTest = function(architectureDesign, i){
-   return `
-   <div class="image-container" id=${i}>
-       <img src="${architectureDesign.image}" class="images">
-   </div>
-   
-   <div class="works-details">
-
-   <h3>${architectureDesign.title}</h3>
-   <h3>${architectureDesign.designer}</h3>
-   <h3>${architectureDesign.year}</h3>
-   <h3>${architectureDesign.material}</h3>
-   <h3>${architectureDesign.category}</h3>
-   <h3>${architectureDesign.located}</h3>
-
-   </div>
-
-   `
-}
+loopThroughItems(artworks, archcontainer);
+loopThroughItems(graphicDesign, artcontainer);
+loopThroughItems(architectureDesign, newcontainer);
 
